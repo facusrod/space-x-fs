@@ -1,4 +1,4 @@
-FROM node:17.1.0 AS development
+FROM node:20-alpine AS development
 ENV NODE_ENV development
 # Add a work directory
 WORKDIR /app
