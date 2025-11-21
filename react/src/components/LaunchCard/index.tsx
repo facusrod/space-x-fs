@@ -10,9 +10,15 @@ interface LaunchCardProps {
 
 export const LaunchCard = ({ launch, updateFavorite }: LaunchCardProps) => {
   const handleClickFavorite = async () => {
-    await (launch.favorite
-      ? removeFavorite(launch.flight_number)
-      : addFavorite(launch.flight_number));
+    const nextFavorite = !launch.favorite;
+    try {
+      await (launch.favorite
+        ? removeFavorite(launch.flight_number)
+        : addFavorite(launch.flight_number));
+      updateFavorite(launch.flight_number, nextFavorite);
+    } catch (error) {
+      console.error("Unable to update favorite", error);
+    }
   };
 
   return (

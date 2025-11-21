@@ -15,9 +15,18 @@ export const LaunchesList = () => {
   const filterLaunches = () => {
     setCurrentPage(1);
     // 3
-    return setFilteredLaunches(
-      launches.filter((l: Launch) => showAll || l.favorite)
-    );
+    const normalizedSearch = searchText.trim().toLowerCase();
+    const filtered = launches.filter((launch: Launch) => {
+      const matchesFavorites = showAll || launch.favorite;
+      const matchesSearch = normalizedSearch
+        ? launch.mission_name
+            ?.toLowerCase()
+            .includes(normalizedSearch)
+        : true;
+      return matchesFavorites && matchesSearch;
+    });
+
+    return setFilteredLaunches(filtered);
   };
 
   const loadLaunches = async () => {
@@ -34,6 +43,16 @@ export const LaunchesList = () => {
   }, []);
 
   useEffect(filterLaunches, [searchText, showAll, launches]);
+  
+  const handleFavoriteUpdate = (flightNumber: number, favorite: boolean) => {
+    setLaunches((prevLaunches) =>
+      prevLaunches.map((launch) =>
+        launch.flight_number === flightNumber
+          ? { ...launch, favorite }
+          : launch
+      )
+    );
+  };
 
   return (
     <div className="launches-list-container">
@@ -49,9 +68,9 @@ export const LaunchesList = () => {
             <LaunchCard
               key={launch.flight_number}
               launch={launch}
-              updateFavorite={() => {}}
+              updateFavorite={handleFavoriteUpdate}
             />
-          ))}
+          ))} 
       </div>
       <Pagination
         value={currentPage}

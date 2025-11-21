@@ -19,6 +19,7 @@ export const Search = ({ value, onChange }: SeachProps) => {
       <input
         type="text"
         value={value}
+        placeholder="Search mission..."
         onChange={(e) => onChange(e.target.value)}
       />
       <img className="close-icon" src={closeIcon} onClick={clear} alt="Close" />
