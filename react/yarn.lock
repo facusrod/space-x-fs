@@ -2805,14 +2805,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.20":
-  version: 17.0.20
-  resolution: "@types/react@npm:17.0.20"
+"@types/react@npm:^19.2.7":
+  version: 19.2.7
+  resolution: "@types/react@npm:19.2.7"
   dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10c0/8c53bc7660939d0948541a5793f6a0fad10ce793b4f230205850350173825b739c1e79759327c143296fb1331409afe4b33b2587ddcf7aa723ae8dc45d325501
+    csstype: "npm:^3.2.2"
+  checksum: 10c0/a7b75f1f9fcb34badd6f84098be5e35a0aeca614bc91f93d2698664c0b2ba5ad128422bd470ada598238cebe4f9e604a752aead7dc6f5a92261d0c7f9b27cfd1
   languageName: node
   linkType: hard
 
@@ -5520,6 +5518,13 @@ __metadata:
   version: 3.1.1
   resolution: "csstype@npm:3.1.1"
   checksum: 10c0/7c8b8c5923049d84132581c13bae6e1faf999746fe3998ba5f3819a8e1cdc7512ace87b7d0a4a69f0f4b8ba11daf835d4f1390af23e09fc4f0baad52c084753a
+  languageName: node
+  linkType: hard
+
+"csstype@npm:^3.2.2":
+  version: 3.2.3
+  resolution: "csstype@npm:3.2.3"
+  checksum: 10c0/cd29c51e70fa822f1cecd8641a1445bed7063697469d35633b516e60fe8c1bde04b08f6c5b6022136bb669b64c63d4173af54864510fbb4ee23281801841a3ce
   languageName: node
   linkType: hard
 
@@ -13816,7 +13821,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "space-x-react@workspace:."
   dependencies:
-    "@types/react": "npm:17.0.20"
+    "@types/react": "npm:^19.2.7"
     "@types/react-dom": "npm:17.0.9"
     axios: "npm:0.27.2"
     react: "npm:18.0.0"

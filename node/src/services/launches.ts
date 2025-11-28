@@ -4,8 +4,7 @@ import { getUserFavorites } from "./favorites";
 export const processLaunches = async (userId, launches, rockets) => {
   const userFavorites = await getUserFavorites(userId);
   const favoritesSet = new Set(
-    (userFavorites || []).map(({ flight_number }) => flight_number)
-  );
+    userFavorites?.map(({ flight_number }) => flight_number) ?? []);
 
   const rocketsById = Array.isArray(rockets)
     ? rockets.reduce((acc, rocket) => {

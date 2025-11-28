@@ -17,7 +17,8 @@ export const generateToken = async (req, res) => {
     userId
   };
 
-  const token = jwt.sign(data, jwtSecretKey);
+  const ttl = process.env.JWT_EXPIRES_IN || "1h";
+  const token = jwt.sign(data, jwtSecretKey, { expiresIn: ttl });
 
   res.send({ token });
 };

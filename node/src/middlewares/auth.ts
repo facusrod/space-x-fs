@@ -21,6 +21,9 @@ export const auth = (req, res, next) => {
     req.currentUserId = decoded.userId;
     return next();
   } catch (err) {
+    if (err instanceof jwt.TokenExpiredError) {
+      return res.status(401).send("Token expired");
+    }
     return res.status(401).send("Unauthorized");
   }
 };
